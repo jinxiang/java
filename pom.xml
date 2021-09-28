@@ -10,6 +10,7 @@
     <modules>
         <module>javase</module>
         <module>spring</module>
+        <module>gof</module>
     </modules>
     <packaging>pom</packaging>
 
