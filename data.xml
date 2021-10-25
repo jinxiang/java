@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "config.dtd">
+<mapping showRootElement="false">
+    <data-block name="channel">
+        <field-list>
+            <data-block name="item">
+                <field-list>
+                    <field>
+                        <field-name>image</field-name>
+                        <database-column>'zmdi zmdi-group zmdi-hc-2x'</database-column>
+                    </field>
+                    <field>
+                        <field-name>link</field-name>
+                        <database-column>'javascript:gotoGroupDetailsById('''|| $OFA.SvcDetails.CUST_ID$ || ''','''||
+                            og.id ||''');'
+                        </database-column>
+                    </field>
+                    <field>
+                        <field-name>title</field-name>
+                        <database-column>og.GROUP_NAME</database-column>
+                    </field>
+                </field-list>
+                <database-query-clause>from ((select distinct mem.ooe_group_id id, grp.group_name GROUP_NAME
+                    FROM sml_ooe_group_member mem inner join sml_ooe_group grp on grp.id=mem.ooe_group_id
+                    LEFT OUTER JOIN VW_SM_USER_CTO_CODE cto2 ON grp.group_rm_id = cto2.user_id AND grp.grm_cto_code =
+                    cto2.cto_code where mem.customer_id in ($OFA.SvcDetails.CUST_ID$)
+                    and mem.proposed_as_member = 'Y' and grp.member_type = 'G' and mem.status in ('ACTIVE') and
+                    grp.master_id is null and grp.status in ('ACTIVE')
+                    and grp.deprecated='N')UNION( SELECT grp.id, grp.group_name || ' (G)' from sml_ooe_group grp where
+                    grp.master_id is not null and grp.member_type='M' and nvl(grp.fi_entity_ind,'N')='N'
+                    and grp.deprecated='N' and grp.id IN (SELECT COLUMN_VALUE FROM
+                    TABLE(in_list(get_global_group_id($OFA.SvcDetails.CUST_ID$) ))))) og
+                </database-query-clause>
+            </data-block>
+        </field-list>
+        <database-query-clause>FROM dual</database-query-clause>
+    </data-block>
+</mapping>

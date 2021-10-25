@@ -12,6 +12,8 @@
         <module>spring</module>
         <module>gof</module>
         <module>cleancraftmanship</module>
+        <module>logging</module>
+        <module>arvo</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -19,6 +21,7 @@
         <lombok.version>1.18.20</lombok.version>
         <junit.version>5.8.0</junit.version>
         <spring-boot.version>2.5.5</spring-boot.version>
+        <jackson.version>2.13.0</jackson.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -37,6 +40,22 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

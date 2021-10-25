@@ -1,0 +1,23 @@
+@startmindmap
+'https://plantuml.com/mindmap-diagram
+
+caption figure 112123
+title My super titlea
+
+* Color
+**:this an
+Apple;
+***[#lightgreen] Hellow World
+**[#800080]: this is an pearl
+;
+header
+My super header
+endheader
+
+center footer My super footer
+
+legend right
+  Short
+  legend
+endlegend
+@endmindmap

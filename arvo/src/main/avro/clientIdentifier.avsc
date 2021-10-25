@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "ClientIdentifier",
+  "namespace": "com.hmmloo.arvo",
+  "fields": [
+    {
+      "name": "hostName",
+      "type": "string"
+    },
+    {
+      "name": "ipAddress",
+      "type": "string"
+    },
+    {
+      "name": "types",
+      "type": {
+        "type": "enum",
+        "name": "ClientType",
+        "namespace": "com.hmmloo.arvo",
+        "symbols": ["TYPEA","B","C"]
+      }
+    }
+  ]
+}

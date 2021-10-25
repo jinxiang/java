@@ -1,0 +1,25 @@
+<!ELEMENT mapping (data-block)>
+<!ELEMENT data-block (namespace*, field-list, database-query-clause)>
+<!ELEMENT namespace EMPTY>
+<!ELEMENT field-list (field | data-block | field-group | field-block | multi-field-group)+>
+<!ELEMENT field (field-name, database-column)>
+<!ELEMENT field-block (field-name, database-column,database-query-clause)>
+<!ELEMENT field-group (field  | field-group)+>
+<!ELEMENT multi-field-group (multi-field, database-query-clause)>
+<!ELEMENT multi-field (field | data-block | multi-field-group)+>
+
+<!ELEMENT database-query-clause (#PCDATA)>
+<!ELEMENT field-name (#PCDATA)>
+<!ELEMENT database-column (#PCDATA)>
+
+<!ATTLIST mapping name CDATA #IMPLIED>
+<!ATTLIST mapping showXMLRoot (true|false) #IMPLIED>
+<!ATTLIST mapping showRootElement (true|false) #IMPLIED>
+<!ATTLIST mapping nullHandling (true|false) #IMPLIED>
+
+<!ATTLIST data-block name CDATA #REQUIRED>
+<!ATTLIST field-group name CDATA #REQUIRED>
+<!ATTLIST field-group condition CDATA #IMPLIED>
+<!ATTLIST namespace uri CDATA #REQUIRED>
+<!ATTLIST namespace name CDATA #REQUIRED>
+<!ATTLIST namespace prefix CDATA #IMPLIED>

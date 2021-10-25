@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+boundary ServiceController as ctl
+entity OBBatchJobStatus as e1
+entity IServiceSetup as e2
+
+@enduml

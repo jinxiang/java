@@ -1,23 +1,20 @@
 package com.hmmloo.cleancraftmanship.chap03;
 
 public class MyStack {
-    private boolean empty = true;
     private int size = 0;
-    private int element;
+    private int[] elements = new int[2];
 
     public boolean isEmpty() {
         return size == 0;
     }
 
     public void push(int i) {
-        size++;
-        element = i;
+        elements[size++] = i;
     }
 
     public int pop() throws UnderflowException {
         if (isEmpty()) throw new UnderflowException();
-        size--;
-        return element;
+        return elements[--size];
     }
 
     public int getSize() {
