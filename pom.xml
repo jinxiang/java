@@ -15,6 +15,7 @@
         <module>logging</module>
         <module>arvo</module>
         <module>JavaCodingProblems</module>
+        <module>HeadFirstDesignPatterns2</module>
     </modules>
     <packaging>pom</packaging>
 
